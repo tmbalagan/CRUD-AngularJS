@@ -1,6 +1,9 @@
 
 # dependencies
 /node_modules
+/routes
+/schema
+/config
 
 # System Files
 .DS_Store

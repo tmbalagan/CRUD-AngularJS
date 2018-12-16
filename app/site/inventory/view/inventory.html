@@ -1,0 +1,72 @@
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12">
+            <h3 class="base-info-header">Basic Info</h3>
+            <div class="col-sm-6">
+                <form name="baseinfoform" submit-validate  role="form" novalidate ng-if="IC.add">
+                    <div class="col-sm-12">
+                        <div class="form-group col-sm-6">
+                            <label for="po_no">Po Number: </label>
+                            <input type="text" name="po_no" id="po_no" class="form-control"
+                                   ng-model="IC.baseinfoform.po_no" required>
+                            <span class="valider-err" ng-show="baseinfoform.po_no.$invalid && !baseinfoform.po_no.$pristine">Po Number is required.</span>
+                        </div>
+                        <div class="form-group col-sm-6">
+                            <label for="suppliers">Suppliers: </label>
+                            <input type="text" name="suppliers" id="suppliers" class="form-control"
+                                   ng-model="IC.baseinfoform.suppliers" required>
+                            <span class="valider-err" ng-show="baseinfoform.suppliers.$error.required && !baseinfoform.suppliers.$pristine">suppliers is required.</span>
+                        </div>
+                        <div class="form-group col-sm-6">
+                            <label for="amount">Amount: </label>
+                            <input type="text" name="amount" id="amount" class="form-control"
+                                   ng-model="IC.baseinfoform.amount" required>
+                            <span class="valider-err" ng-show="baseinfoform.amount.$error.required && !baseinfoform.amount.$pristine">Amount is required.</span>
+                        </div>
+                        <div class="form-group col-sm-6">
+                            <label for="status">Status: </label>
+                            <select id="status" name="status" ng-model="IC.baseinfoform.status" class="form-control" required>
+                                <option value=''>select</option>
+                                <option value='1'>Active</option>
+                                <option value='2'>Inactive</option>
+                            </select>
+                            <span class="valider-err" ng-show="baseinfoform.status.$error.required && !baseinfoform.status.$pristine">Status is required.</span>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-success" ng-click="IC.baseinfo(baseinfoform.$valid, IC.baseinfoform)" ng-if="IC.saveBtn"> Save</button>
+                    <button type="submit" class="btn btn-success" ng-click="IC.Editbase(baseinfoform.$valid, IC.baseinfoform)" ng-if="IC.editBtn"> Update</button>
+
+                    <button type="submit" class="btn btn-warning" ng-click="IC.cancelBase()"> Cancel</button>
+                </form>
+                <table class="table" ng-if="IC.view">
+                    <thead>
+                    <tr>
+                        <th>Po Number</th>
+                        <th>Suppliers</th>
+                        <th>Amount</th>
+                        <th>Status</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr ng-repeat="x in IC.baseInfo track by $index" ng-if="IC.baseInfo.length > 0">
+                        <td>{{ x.po_no }}</td>
+                        <td>{{ x.suppliers }}</td>
+                        <td>{{ x.amount }}</td>
+                        <td>{{ x.status == 1?'Active':'InActive' }}</td>
+                        <td><button type="button" class="btn btn-danger" ng-click="IC.deleteBaseInfo(x.unique)">Delete</button>
+                            <button type="button" class="btn btn-info" ng-click="IC.editBaseInfo(x.unique)">Edit</button>
+                        </td>
+                    </tr>
+                    <tr ng-if="IC.baseInfo.length == 0">
+                        <td>There is no data</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-sm-6">
+                <button type="button" class="btn btn-info" ng-click="IC.addBaseInfo()" ng-if="IC.view">Add</button>
+                <button type="button" class="btn btn-info" ng-click="IC.viewBaseInfo()" ng-if="IC.add">View</button>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,53 @@
+.calender table {
+    display: block;
+}
+
+.calender tbody {
+    display: block;
+    width: 100%;
+}
+
+.calender tbody tr {
+    display: block;
+    border-top: 1px solid #e7e7e7;
+    padding: 8px;
+}
+
+.between-hour {
+    padding: 0;
+    border: 0;
+    opacity: 0;
+    height: 10px;
+    display: block;
+    width: 100%
+}
+
+.hour {
+    cursor: pointer;
+    display: block;
+}
+
+.time {
+    width: 100%;
+    display: block;
+    cursor: pointer;
+}
+
+.blue {
+    background-color: #0F74BD;
+    width: 100%
+}
+
+.white {
+    color: #333;
+}
+
+.base-info-header {
+    padding: 8px;
+    background-color: #5e5e5e;
+    color: #ffffff;
+}
+
+.valider-err {
+    color: red;
+}

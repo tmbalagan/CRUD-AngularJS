@@ -1,9 +1,7 @@
 
 # dependencies
 /node_modules
-/routes
-/schema
-/config
+
 
 # System Files
 .DS_Store
@@ -12,3 +10,6 @@ Thumbs.db
 # IDE
 /.idea
 package-lock.json
+/routes
+/schema
+/config
